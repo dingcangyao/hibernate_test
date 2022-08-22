@@ -30,4 +30,16 @@
             <version>1.18.12</version>
         </dependency>
     </dependencies>
+    <build>
+        <!-- 设置允许读取类包中的 xml文件-->
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+        </resources>
+
+    </build>
 </project>

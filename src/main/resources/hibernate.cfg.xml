@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+
+    <session-factory>
+        <!-- 数据源配置-->
+        <property name="connection.username">root</property>
+        <property name="connection.password">123456</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/hibernate?useUnicode=true&amp;characterEncoding=UTF-8</property>
+        <!--        C3p0-->
+        <property name="hibernate.c3p0.acquire_increment">10</property><!--        每次增加的连接数目-->
+        <property name="hibernate.c3p0.idle_test_period">10000</property><!--   多久进行释放资源-->
+        <property name="hibernate.c3p0.timeout">5000</property><!--   超时时间-->
+        <property name="hibernate.c3p0.max_size">30</property><!--   最大连接数-->
+        <property name="hibernate.c3p0.min_size">5</property><!--   最小连接数-->
+        <property name="hibernate.c3p0.max_statements">10</property><!--   最大会话-->
+        <!--        方言-->
+<!--        <property name="dialect">org.hibernate.dialect.MySQL57Dialect</property>-->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <!--        打印SQL语句  -->
+        <property name="show_sql">true</property>
+        <!--        格式化SQL-->
+        <property name="format_sql">true</property>
+        <!--        是否自动生成数据表-->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!--        注册实体关系映射文件-->
+        <mapping resource="com/yaoge/entity/People.hbm.xml"></mapping>
+
+    </session-factory>
+
+
+</hibernate-configuration>
