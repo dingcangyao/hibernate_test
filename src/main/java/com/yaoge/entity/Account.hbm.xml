@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.yaoge.entity.Account" table="t_account">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"></column>
+            <generator class="identity"></generator>
+        </id>
+
+        <property name="name" type="java.lang.String">
+            <column name="name"></column>
+        </property>
+        <!-- 多对多的映射  account 对 course
+          绑定的 table（代表 关系 在哪） 就是中间关系表
+          key 是当前类 在中间关系表中的外键
+          下面的关系类型就是 many-to-many（数据获取） 代表的是多对多的另一方
+          要指定另一方的实体类以及 在关系表中对应的外键
+
+
+        -->
+        <set name="courses" table="account_course">
+            <key column="aid"></key>
+            <many-to-many class="com.yaoge.entity.Course"  column="cid"></many-to-many>
+        </set>
+    </class>
+
+</hibernate-mapping>
