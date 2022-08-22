@@ -29,6 +29,8 @@
 
         <!--        注册实体关系映射文件-->
         <mapping resource="com/yaoge/entity/People.hbm.xml"></mapping>
+        <mapping resource="com/yaoge/entity/Customer.hbm.xml"></mapping>
+        <mapping resource="com/yaoge/entity/Orders.hbm.xml"></mapping>
 
     </session-factory>
 

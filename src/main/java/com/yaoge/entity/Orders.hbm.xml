@@ -3,7 +3,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="com.yaoge.entity.Customer" table="customer">
+    <class name="com.yaoge.entity.Orders" table="orders">
         <id name="id" type="java.lang.Integer">
             <column name="id"></column>
             <generator class="identity"></generator>
@@ -12,11 +12,8 @@
         <property name="name" type="java.lang.String">
             <column name="name"></column>
         </property>
-        <!-- 一对多的映射  customer 是1 order是多  -->
-        <set name="orders" table="orders">
-            <key column="cid"></key>
-            <one-to-many class="com.yaoge.entity.Orders"></one-to-many>
-        </set>
+        <!-- 多对一的映射  customer 是1 order是多  -->
+        <many-to-one name="customer" class="com.yaoge.entity.Customer" column="cid"></many-to-one>
     </class>
 
 </hibernate-mapping>
