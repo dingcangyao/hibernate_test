@@ -13,7 +13,13 @@
             <column name="name"></column>
         </property>
         <!-- 一对多的映射  customer 是1 order是多  -->
-        <set name="orders" table="orders">
+        <set name="orders" table="orders"  lazy="true">
+            <!-- lazy 的属性值默认就是true  可以改成false  false 就是关闭懒加载
+               还有一个选择就是extra ：是更加 智能的操作，就比如
+               当你只需要知道set的size  他就会发送一个查询size的sql 语句，而不是先把所有的数据查出来，再计算大小
+
+
+             -->
             <key column="cid"></key>
             <one-to-many class="com.yaoge.entity.Orders"></one-to-many>
         </set>

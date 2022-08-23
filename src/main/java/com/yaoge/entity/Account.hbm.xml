@@ -20,7 +20,8 @@
 
 
         -->
-        <set name="courses" table="account_course">
+        <set name="courses" table="account_course" >
+            <!-- 延迟加载也是默认开启的，和多对一的一样。 -->
             <key column="aid"></key>
             <many-to-many class="com.yaoge.entity.Course"  column="cid"></many-to-many>
         </set>

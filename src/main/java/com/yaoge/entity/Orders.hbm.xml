@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping>
+<hibernate-mapping >
 
     <class name="com.yaoge.entity.Orders" table="orders">
         <id name="id" type="java.lang.Integer">
@@ -13,7 +13,13 @@
             <column name="name"></column>
         </property>
         <!-- 多对一的映射  customer 是1 order是多  -->
-        <many-to-one name="customer" class="com.yaoge.entity.Customer" column="cid"></many-to-one>
+        <!-- 也可以在多的一端设置懒加载，这一段的懒加载默认是关闭的，我感觉可能是因为 多的这一端即使查，涉及的数据只有一条
+        但是我测试其实是默认开启的，可能版本有区别
+        这里的lazy 有 false  proxy 和 no-proxy （后面两个都有懒加载的效果）
+        no-proxy  当调用方法 需要访问 customer的成员变量时，发送SQL语句查询 Customer，否则不查询
+        proxy：无论调用方法是否需要访问 customer的成员变量，都会发送SQL语句查询Customer
+        -->
+        <many-to-one name="customer" class="com.yaoge.entity.Customer" column="cid" lazy="proxy"></many-to-one>
     </class>
 
 </hibernate-mapping>

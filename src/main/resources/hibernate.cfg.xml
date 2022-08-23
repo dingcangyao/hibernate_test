@@ -25,7 +25,17 @@
         <!--        格式化SQL-->
         <property name="format_sql">true</property>
         <!--        是否自动生成数据表-->
-        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.hbm2ddl.auto"></property>
+        <!--
+         有几个可选择的值
+         update：动态创建表，如果表存在，则直接使用，如果表不存在，则创建
+         create：无论表是否存在，都会重新创建
+         create-drop： 初始化创建表，程序结束时删除表
+         validate：校验实体关系映射文件和数据表是否对应，不能对应直接报错
+
+
+
+        -->
 
         <!--        注册实体关系映射文件-->
         <mapping resource="com/yaoge/entity/People.hbm.xml"></mapping>
