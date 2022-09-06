@@ -3,7 +3,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping >
 
-    <class name="com.yaoge.entity.Orders" table="orders">
+    <class name="com.yaoge.entity.Orders" table="orders" lazy="true">
         <id name="id" type="java.lang.Integer">
             <column name="id"></column>
             <generator class="identity"></generator>

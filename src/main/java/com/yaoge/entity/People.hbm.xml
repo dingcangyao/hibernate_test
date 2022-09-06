@@ -3,7 +3,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="com.yaoge.entity.People" table="people">
+    <class name="com.yaoge.entity.People" table="people" dynamic-update="true" dynamic-insert="true" select-before-update="true">
         <id name="id" type="java.lang.Integer">
             <column name="id"></column>
             <generator class="identity"></generator>

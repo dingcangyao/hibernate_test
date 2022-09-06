@@ -7,6 +7,7 @@
     <session-factory>
         <!-- 数据源配置-->
 
+<!--        <property name="hibernate.use_identifier_rollback">true</property>-->
         <property name="connection.username">root</property>
         <property name="connection.password">123456</property>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
@@ -26,7 +27,7 @@
         <!--        格式化SQL-->
         <property name="format_sql">true</property>
         <!--        是否自动生成数据表-->
-        <property name="hibernate.hbm2ddl.auto"></property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
         <!--
          有几个可选择的值
          update：动态创建表，如果表存在，则直接使用，如果表不存在，则创建
@@ -39,11 +40,13 @@
         -->
 
         <!--        注册实体关系映射文件-->
-        <mapping resource="com/yaoge/entity/People.hbm.xml"></mapping>
-        <mapping resource="com/yaoge/entity/Customer.hbm.xml"></mapping>
-        <mapping resource="com/yaoge/entity/Orders.hbm.xml"></mapping>
-        <mapping resource="com/yaoge/entity/Course.hbm.xml"></mapping>
-        <mapping resource="com/yaoge/entity/Account.hbm.xml"></mapping>
+<!--        <mapping resource="com/yaoge/entity/People.hbm.xml"></mapping>-->
+<!--        <mapping resource="com/yaoge/entity/Customer.hbm.xml"></mapping>-->
+<!--        <mapping resource="com/yaoge/entity/Orders.hbm.xml"></mapping>-->
+<!--        <mapping resource="com/yaoge/entity/Course.hbm.xml"></mapping>-->
+<!--        <mapping resource="com/yaoge/entity/Account.hbm.xml"></mapping>-->
+        <mapping resource="com/yaoge/one2one/main/Department.hbm.xml"></mapping>
+        <mapping resource="com/yaoge/one2one/main/Manager.hbm.xml"></mapping>
 
     </session-factory>
 

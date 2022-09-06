@@ -10,10 +10,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * create by yaoge
@@ -203,7 +200,52 @@ public class Test4 {
             System.out.println(list2);
         });
     }
+    /**
+     * 测试delete的rollback属性
+     */
+    @Test
+    public void testD1() {
 
+        People people = new People();
+
+        people.setId(2);
+        System.out.println(people);
+        session.delete(people);
+        System.out.println(people);
+    }
+    /**
+     * 测试更新单属性
+     * 即使时 dynamic update 和insert 也不能根据游离对象的null值
+     * 来不设置 对应的属性
+     */
+    @Test
+    public void testU1() {
+
+        People people = new People();
+
+        people.setId(1);
+
+        people.setName("李fd");
+//        people.setMoney(null);
+        session.update(people);
+        System.out.println(people);
+    }
+    /**
+     * 测试懒加载
+     */
+    @Test
+    public void testLazy1() {
+
+        Customer customer1 = session.load(Customer.class, 2);
+        System.out.println(customer1.getName());
+        Set<Orders> order = customer1.getOrders();
+        Orders orders = session.load(Orders.class, 2);
+
+        Customer customer = orders.getCustomer();
+        System.out.println(orders);
+
+
+    }
 
     @After
     public void after() {

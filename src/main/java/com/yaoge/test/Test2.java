@@ -21,19 +21,22 @@ public class Test2 {
         //开启事务
         Transaction transaction = session.beginTransaction();
 
-        //创建 Customer
-        Customer customer = new Customer();
-        customer.setName("张三");
-        //创建Orders
-        Orders orders = new Orders();
-        orders.setName("订单1");
+//        //创建 Customer
+//        Customer customer = new Customer();
+//        customer.setName("张三");
+//        //创建Orders
+//        Orders orders = new Orders();
+//        orders.setName("订单1");
+//
+//        //建立关联关系
+//        orders.setCustomer(customer);
+//        //保存
+//        session.save(customer);
+//        session.save(orders);
+//        customer.setName("李四");//持久态的对象更改属性会在提交事务之后保存到数据库
 
-        //建立关联关系
-        orders.setCustomer(customer);
-        //保存
-        session.save(customer);
-        session.save(orders);
-        customer.setName("李四");//持久态的对象更改属性会在提交事务之后保存到数据库
+
+
         //提交事务
         transaction.commit();
         //关闭session

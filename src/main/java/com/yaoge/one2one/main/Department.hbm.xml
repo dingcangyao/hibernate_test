@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.yaoge.one2one.foreign.Department" table="DEPARTMENT1">
+        <id name="deptId" type="java.lang.Integer">
+            <column name="DEPT_ID"></column>
+            <generator class="native"></generator>
+        </id>
+
+        <property name="deptName" type="java.lang.String">
+            <column name="DEPT_NAME"></column>
+        </property>
+        <one-to-one name="mgr" class="com.yaoge.one2one.foreign.Manager"/>
+
+
+
+    </class>
+
+</hibernate-mapping>
